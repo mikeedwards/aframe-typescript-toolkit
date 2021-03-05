@@ -6,7 +6,7 @@ export interface Attributes {
 }
 
 export class EntityBuilder {
-    private entity: AFrame.Entity
+    private readonly entity: AFrame.Entity
 
     constructor(type: string, attributes?: Attributes) {
         this.entity = <AFrame.Entity> document.createElement(type)
@@ -38,7 +38,7 @@ export class EntityBuilder {
 
     setAttributes(attributes: Attributes): EntityBuilder {
         Object.keys(attributes).forEach( k => {
-            this.set(k, attributes[k])            
+            this.set(k, attributes[k])
         })
         return this
     }
@@ -66,7 +66,7 @@ export class EntityBuilder {
             } else {
                 // parent.attach(this.entity)
             }
-        }    
+        }
 
         return this
     }

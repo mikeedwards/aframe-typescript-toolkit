@@ -24,7 +24,7 @@ const plugins = [
       out: './docs',
       module: 'commonjs',
       target: 'es5',
-      exclude: ['**/node_modules/**/*.*', '**/examples/**/*.*', "**/.history/**", "**/templates/**/*.*"],
+      exclude: ['node_modules', 'examples', '.history', 'templates'].map(subdir => path.resolve(__dirname, subdir)),
       experimentalDecorators: true,
       excludeExternals: true
   })
@@ -34,7 +34,7 @@ if (!isProd) {
   plugins.push(new DashboardPlugin());
 }
 
-var config = {
+const config = {
   devtool: isProd ? "hidden-source-map" : "source-map",
   context: path.resolve("./src"),
   entry: {
@@ -53,13 +53,13 @@ var config = {
       {
         enforce: "pre",
         test: /\.ts?$/,
-        exclude: ["node_modules"],
-        use: ["awesome-typescript-loader", "source-map-loader"]
+        exclude: ['node_modules'].map(subdir => path.resolve(__dirname, subdir)),
+        use: ["ts-loader", "source-map-loader"]
       },
       {
         test: /\.(js|ts)$/,
         loader: "babel-loader",
-        exclude: [/\/node_modules\//]
+        exclude: ['node_modules'].map(subdir => path.resolve(__dirname, subdir)),
       }
     ]
   },

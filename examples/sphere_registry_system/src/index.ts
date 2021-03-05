@@ -1,4 +1,4 @@
-import { ComponentWrapper, SystemWrapper } from "../../../src/index"
+import { ComponentWrapper, SystemWrapper } from "../../../src"
 
 interface SphereRegistryComponentSchema {
     readonly color: string

@@ -1,13 +1,11 @@
-<html>
+<html lang="en-US">
     <head>
-        <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-      
-        <script type="text/javascript" src="index.js"></script>
+        <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
         <script>
             const randomIn = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
 
             const addBall = () => {
-                let color = ""
+                let color;
                 switch (randomIn(0, 3)) {
                     case 0: color = "red"
                         break
@@ -40,6 +38,7 @@
             })
 
         </script>
+        <title>System</title>
     </head>
 
     <body>
@@ -48,7 +47,7 @@
             <a-sky color="#ECECEC"></a-sky>
             <a-text id="board"
                 value="CHANGE ME"
-                position="-3 2 -2"   
+                position="-3 2 -2"
                 color="red"
             ></a-text>
             <a-light position="0 10 0" color="white" type="point"></a-light>

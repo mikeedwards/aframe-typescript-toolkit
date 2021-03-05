@@ -38,33 +38,29 @@ var config = {
   output: {
     path: path.resolve("./dist"),
     filename: "index.js",
-    sourceMapFilename: "index.map",
+    sourceMapFilename: "[file].map",
     devtoolModuleFilenameTemplate: function(info) {
       return "file:///" + info.absoluteResourcePath;
-    }
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index.js',
-    library: 'AframeToolkitExample',
-    libraryTarget: 'umd'
+    },
+    library: "AframeToolkitExample",
+    libraryTarget: "umd"
   },
   module: {
     rules: [
       {
         enforce: "pre",
         test: /\.ts?$/,
-        exclude: ["node_modules"],
-        use: ["awesome-typescript-loader", "source-map-loader"]
+        exclude: path.resolve(__dirname, "node_modules"),
+        use: ["ts-loader", "source-map-loader"]
       },
       {
         test: /\.(js|ts)$/,
         loader: "babel-loader",
-        exclude: [/\/node_modules\//]
+        exclude: path.resolve(__dirname, "node_modules")
       },
       {
         test: /\.html$/,
-        loader: "raw-loader" // loaders: ['raw-loader'] is also perfectly acceptable.
+        loader: "raw-loader"
       }
     ]
   },
