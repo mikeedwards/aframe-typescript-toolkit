@@ -4,7 +4,7 @@ export interface Attributes {
     [key: string]: {};
 }
 export declare class EntityBuilder {
-    private entity;
+    private readonly entity;
     constructor(type: string, attributes?: Attributes);
     static create(type: string, attributes: Attributes, children?: EntityBuilder[]): EntityBuilder;
     set(a: string, b?: any, c?: {}): EntityBuilder;

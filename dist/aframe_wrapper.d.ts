@@ -1,4 +1,4 @@
-import * as AFrame from "aframe"
+import * as AFrame from "aframe";
 /**
  * Extend this class to create strongly typed A-Frame components.
  * Default implementations for component lifecycle methods such as init(), tick(), and others are provided,
@@ -11,6 +11,7 @@ export declare abstract class ComponentWrapper<SCHEMA extends object = {}, SYSTE
     schema: AFrame.Schema<SCHEMA>;
     system: SYSTEM;
     name: string;
+    initialized: boolean;
     constructor(name: string, schema?: AFrame.Schema<SCHEMA>);
     /**
      * Wraps https://aframe.io/docs/0.8.0/core/component.html#definition_lifecycle_handler_methods_remove.
@@ -48,6 +49,7 @@ export declare abstract class ComponentWrapper<SCHEMA extends object = {}, SYSTE
 export declare abstract class SystemWrapper<SCHEMA extends {
     [key: string]: any;
 } = {}> implements AFrame.System {
+    el: AFrame.Entity;
     data: SCHEMA;
     schema: AFrame.Schema<SCHEMA>;
     name: string;

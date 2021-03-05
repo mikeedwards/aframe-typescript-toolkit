@@ -31,12 +31,12 @@ const getInstanceMethodNames = (obj: {}, stop: {}) => {
 }
 
 /**
- * Extend this class to create strongly typed A-Frame components. 
+ * Extend this class to create strongly typed A-Frame components.
  * Default implementations for component lifecycle methods such as init(), tick(), and others are provided,
  * and can be overridden for your component's specific behavior.
  */
 
-export abstract class ComponentWrapper<SCHEMA extends object = {}, SYSTEM extends AFrame.System = AFrame.System> 
+export abstract class ComponentWrapper<SCHEMA extends object = {}, SYSTEM extends AFrame.System = AFrame.System>
     implements AFrame.Component<SCHEMA, SYSTEM> {
 
     el: AFrame.Entity
@@ -45,6 +45,7 @@ export abstract class ComponentWrapper<SCHEMA extends object = {}, SYSTEM extend
     schema: AFrame.Schema<SCHEMA>
     system: SYSTEM
     name: string
+    initialized: boolean
 
     constructor(name: string, schema?: AFrame.Schema<SCHEMA>) {
         this.name = name
@@ -126,6 +127,7 @@ export abstract class ComponentWrapper<SCHEMA extends object = {}, SYSTEM extend
 export abstract class SystemWrapper<SCHEMA extends { [key: string]: any } = {}>
     implements AFrame.System {
 
+    el: AFrame.Entity
     data: SCHEMA
     schema: AFrame.Schema<SCHEMA>
     name: string
