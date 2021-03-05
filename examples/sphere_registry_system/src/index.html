@@ -1,6 +1,7 @@
 <html>
     <head>
         <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
 
         <script>
             const randomIn = (min, max) => Math.floor(Math.random() * (max - min + 1) + min)
@@ -46,7 +47,7 @@
         <a-scene embedded renderer="antialias: true" id="scene">
             <a-sky color="#ECECEC"></a-sky>
             <a-text id="board"
-                value="CHANGE ME"
+                value=""
                 position="-3 2 -2"
                 color="red"
             ></a-text>

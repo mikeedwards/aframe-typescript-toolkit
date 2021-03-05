@@ -111,7 +111,7 @@ See the docs for additional information on [EntityBuilder](http://htmlpreview.gi
 ### ComponentWrapper
 The ComponentWrapper is a base class for creating strongly typed A-Frame components. Component lifecycle methods such as init(), tick(), and others are provided, and can be overridden to suit your component's specific behavior.
 
-See the [example](examples/__position_logger_component) as well as the [ComponentWrapper docs](http://htmlpreview.github.io/?https://github.com/olioapps/aframe-typescript-toolkit/blob/master/dist/docs/classes/_aframe_wrapper_.componentwrapper.html) for more details. 
+See the [example](examples/position_logger_component) as well as the [ComponentWrapper docs](http://htmlpreview.github.io/?https://github.com/olioapps/aframe-typescript-toolkit/blob/master/dist/docs/classes/_aframe_wrapper_.componentwrapper.html) for more details. 
 
 ### SystemWrapper
 The SystemWrapper allows you to create typescript A-Frame systems. Components can subscribe themselves to a system, allowing the system to reference its components.
